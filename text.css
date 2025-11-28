@@ -111,12 +111,7 @@
 }
 @media screen and (max-width:400px) {
     #WelcomeMessage> h1{
-         font-size: 50px;
-    }
-    @keyframes bounce {
-        100%{
-            transform: translateY(-20px);
-        }
+         font-size: 60px;
     }
     #countDown{
         font-size: 35px;
