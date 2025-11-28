@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <title>speedTexting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="text.css"> 
+</head>
+
+<body class="box-border overflow-hidden flex font-bold justify-center items-center p-0 m-0 italic font-medium" onscroll="myfunction()">
+
+    <!-- styling background color -->
+    <div class="bar-animation absolute">
+        <div class="bar barRemove  bg-black opacity-75 " style="--i:7;"></div>
+        <div class="bar  bg-black opacity-75" style="--i:6;"></div>
+        <div class="bar  bg-black opacity-75" style="--i:5;"></div>
+        <div class="bar  bg-black opacity-75" style="--i:4;"></div>
+        <div class="bar  bg-black opacity-75" style="--i:3;"></div>
+        <div class="bar  bg-black opacity-75" style="--i:2;"></div>
+        <div class="bar  bg-black opacity-75" style="--i:1;"></div>
+    </div>
+    <div class="main flex-[1] h-screen flex">   
+        <!-- welcome message -->
+        <div class="text-white  justify-center items-center flex flex-[1]" id="WelcomeMessage">
+            <h1 class="text-8xl">W</h1>
+            <h1 class="text-8xl"  style="--i:1;">e</h1>
+            <h1 class="text-8xl"  style="--i:2;">l</h1>
+            <h1 class="text-8xl"  style="--i:3;">c</h1>
+            <h1 class="text-8xl"  style="--i:4;">o</h1>
+            <h1 class="text-8xl"  style="--i:5;">m</h1>
+            <h1 class="text-8xl"  style="--i:6;">e</h1>
+        </div>
+        <!-- timer to display count down  then it will automation bring up the textTying -->
+        <div class=" text-white justify-center hidden gap-y-6 flex-col items-center flex  flex-[1]" id="countDown">
+        
+            <h1 class="text-4xl">ARE YOU READY</h1>
+            <div class="text-4xl flex justify-center  items-center" id="counting">
+                <h1 id="countingnumber">3</h1>
+                <p style="--i:1;" class="ml-1">.</p>
+                <p style="--i:2;">.</p>
+                <p style="--i:3;">.</p>
+            </div>
+          
+        </div>
+        <!-- to dispaly user highet score and last score
+        when the user has be welcomed before -->
+        <div></div>
+        <!-- spead texttying -->
+        <div class="hidden flex-[1]">f</div>
+        
+    </div>
+
+</body>
+<script src="./text.js"></script>
+
+</html>
