@@ -93,7 +93,7 @@ z-index: 1;
 
 #speedTexting > div{
     height: 550px;
-    background: linear-gradient(45deg,#0c1022,rgba(255, 255, 255, 0.473), black);
+    background: linear-gradient(45deg,#0c1022,rgba(255, 255, 255, 0.856), black);
     border-radius: 20px;
     width: 90%;
     max-width: 600px;
