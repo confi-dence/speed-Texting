@@ -6,12 +6,15 @@ countingnumber = document.getElementById("countingnumber"),
 bouncingdot = document.getElementById("bouncingdot"),
 speedTexting = document.getElementById("speedTexting")
 
-
+// setting timeout for opacity
 
 WelcomeMessage.classList.add("welcomeOpacity")
 setTimeout(() => {
     WelcomeMessage.classList.remove("welcomeOpacity")
 }, 900);
+
+/* setting time out for both
+countDown and WelcomeMessage */
 setTimeout(() => {
     WelcomeMessage.style.display = "none"
 }, 6000);
@@ -21,7 +24,7 @@ setTimeout(() => {
 
 
 
-
+// stting time out for my countDown numbers 3,2,1
 
 setTimeout(() => {
     setTimeout(() => {
@@ -41,7 +44,7 @@ setTimeout(() => {
     }, 6700);
 }, 7000);
 
-
+// adding my animation for the counting Numbers
 setTimeout(() => {
     countDown.classList.add('transfrom')
 }, 100);

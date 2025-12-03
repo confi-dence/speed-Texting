@@ -21,6 +21,7 @@
         <div class="bar" style="--i:2;"></div>
         <div class="bar" style="--i:1;"></div>
     </div>
+    <!-- main body -->
     <div class="main flex-[1] h-screen flex justify-center items-center">   
         <!-- welcome message -->
         <div class="text-white justify-center items-center flex flex-[1]" id="WelcomeMessage">
@@ -51,7 +52,24 @@
      </div> -->
         <!-- spead texttying -->
         <div class="flex-[1] hidden flex justify-center items-center" id="speedTexting">
-               <div class="text">hj
+               <div class="flex-[1] flex flex-col">
+                <!-- text showing to be typed -->
+                <div class="flex-[0.1] flex items-center pl-5 text-white text-xl" id="timer">60</div>
+                <div class="flex-[0.2] flex items-center justify-center" id="displayedText">
+                    <div class="flex-[0.85] h-44 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sed aliquam a et omnis officia sit! Distinctio sed doloremque saepe porro, odit delectus aliquam ab autem maxime aliquid soluta rem nobis dolorem expedita ea temporibus dignissimos velit reiciendis error libero</div>
+                </div> 
+                <!--input for user to types -->
+                <div class="flex-[0.43] flex-col  flex">  
+                    <div class="flex-[0.75] flex justify-center items-center flex-col">
+                        <!-- <textarea type="text" name="" class="flex justify-start items-start"  id="userTyped" placeholder="start typing here...">< -->
+                            <textarea name="" class="pl-2 resize-none" placeholder="start typing here..." id="userTyped"></textarea>
+                    </div>
+                    <div class="flex-[0.25] flex items-end pl-5">
+                        <button class=" text-lg pl-1.5 pr-1.5">take test again</button>
+                    </div>
+                </div>
+                <!-- displaying user last scor and current score -->
+                <div class="flex-[0.17]"></div>
                </div>
         </div>
         
