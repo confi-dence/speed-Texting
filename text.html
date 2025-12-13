@@ -22,9 +22,9 @@
         <div class="bar" style="--i:1;"></div>
     </div>
     <!-- main body -->
-    <div class="main  flex-[1] h-screen w-full flex-col flex">   
+    <div class="main justify-center items-center  flex-[1] h-screen w-full flex-col flex">   
         <!-- welcome message -->
-        <!-- <div class="text-white  justify-center items-center flex flex-[1]" id="WelcomeMessage">
+        <div class="text-white  justify-center items-center flex flex-[1]" id="WelcomeMessage">
             <h1 class="text-8xl">W</h1>
             <h1 class="text-8xl"  style="--i:1;">e</h1>
             <h1 class="text-8xl"  style="--i:2;">l</h1>
@@ -32,9 +32,9 @@
             <h1 class="text-8xl"  style="--i:4;">o</h1>
             <h1 class="text-8xl"  style="--i:5;">m</h1>
             <h1 class="text-8xl"  style="--i:6;">e</h1>
-        </div> -->
+        </div>
         <!-- timer to display count down  then it will automation bring up the textTying -->
-        <!-- <div class=" text-white justify-center hidden gap-y-6 flex-col items-center flex  flex-[1]" id="countDown">
+        <div class=" text-white hidden justify-center gap-y-6 flex-col items-center flex  flex-[1]" id="countDown">
         
             <h1 class="text-6xl">ARE YOU READY</h1>
             <div class="text-6xl flex justify-center   items-center" id="counting">
@@ -44,36 +44,36 @@
                 <p style="--i:3;">.</p>
             </div>
           
-        </div> -->
+        </div>
         <!-- to dispaly user highet score and last score
         when the user has be welcomed before -->
         <!-- <div class="flex justify-center items-center" id="score">
             <span class="hello"></span>
-     </div> -->
+     </div>  -->
         <!-- spead texttying -->
-        <div class="flex-[1]  flex justify-center items-center" id="speedTexting">
+        <div class="flex-[1] flex justify-center hidden items-center" id="speedTexting">
                <div class="flex flex-col" >
                 <!-- text showing to be typed -->
-                <div class="flex-[0.1] flex items-center pl-5 text-white text-xl" id="timer">60</div>
+                <div class="flex-[0.1] flex items-center pl-5 text-white text-xl" id="timer">3</div>
                 <div class="flex-[0.2]  flex items-center justify-center" id="displayedText">
-                    <div class="flex-[0.85] h-44 text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nihil voluptate culpa vel dolore laudantium asperiores ea quasi fugit ipsam!</div>
+                    <div class="flex-[0.85] h-44 text-lg">Christmas is a time of joy, giving, and love. I am thankful for everyone in my life and the blessings of this year. May the holiday season bring happiness and peace to all.</div>
                 </div> 
                 <!--input for user to types -->
                 <div class="flex-[0.43] flex-col  flex">  
                     <div class="flex-[0.75] flex justify-center items-center flex-col">
                         <!-- <textarea type="text" name="" class="flex justify-start items-start"  id="userTyped" placeholder="start typing here...">< -->
-                          <textarea name="" class="pl-2 resize-none" placeholder="start typing here..." id="userTyped"></textarea>
+                          <textarea name="" rows="5" class="pl-2 resize-none" placeholder="start typing here..." id="userTyped"></textarea>
                     </div>
                     <div class="flex-[0.25] flex items-end pl-5" id="restartButton">
-                        <button class=" text-lg pl-1.5 text-gray-200 pr-1.5">take test again</button>
+                        <button class=" text-lg pl-1.5 text-gray-200 pr-1.5" id="takeTest">take test again</button>
                     </div>
                 </div>
                 <!-- displaying user last scor and current score -->
                 <div class="flex-[0.2] flex">
-                    <div class="flex pl-5 text-xl text-gray-200 items-center flex-[0.5]">
-                        <div>Last score is : <em id="LastScore"></em></div>
+                    <div class="flex pl-5 text-lg text-gray-200 items-center flex-[0.5]">
+                        <div>Highest score is : <em id="HighestScore"></em></div>
                     </div>
-                    <div class="flex pl-5 text-xl text-gray-200 items-center justify-center flex-[0.5]">
+                    <div class="flex pl-5 text-lg text-gray-200  items-center justify-start flex-[0.5]">
                         <div>Current score is : <em id="CurrentScore"></em></div>
                     </div>
                     

@@ -90,7 +90,10 @@ z-index: 1;
         transform: rotate(360deg);
     }
 }
-
+#speedTexting{
+    height: inherit;
+    width: inherit;
+}
 #speedTexting > div{
     height: 85%;
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
@@ -170,6 +173,7 @@ button{
     #countDown>h1 , #counting{
         font-size: 50px;
     }
+   
  
 }
 @media screen and (max-width:400px) {
@@ -190,5 +194,8 @@ button{
     }
     #restartButton{
       align-items: start;
+    }
+    #displayedText >div {
+        font-size: 17px;
     }
 }
