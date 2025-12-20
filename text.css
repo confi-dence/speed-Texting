@@ -179,7 +179,7 @@ button{
         font-size: 50px;
     }
    
- 
+
 }
 @media screen and (max-width:400px) {
     #WelcomeMessage> h1{
@@ -203,4 +203,7 @@ button{
     #displayedText >div {
         font-size: 17px;
     }
+    #highCurrent{
+        flex-direction: column;
+     }
 }

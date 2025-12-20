@@ -57,7 +57,7 @@ setTimeout(() => {
 
 // countDown 30 to 0
 
-let time = 30;
+let time = 60;
 let started = false;
 let interval;
 function CountDown() {
@@ -74,7 +74,7 @@ function CountDown() {
         userTyped.disabled = true; // stop typing
         calculateWPM()
       }
-    }, 200);
+    }, 1000);
 }   
 
 // trigger coundown once tying
@@ -110,7 +110,7 @@ function calculateWPM() {
 takeTest.addEventListener('click', function ( ) {
     if(time === -1){
         clearInterval(interval);
-        time = 30;
+        time = 60;
         timerDisplay.textContent = time;
         started = false;
         userTyped.disabled = false
