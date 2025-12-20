@@ -47,16 +47,16 @@
         </div>
         <!-- to dispaly user highet score and last score
         when the user has be welcomed before -->
-        <!-- <div class="flex justify-center items-center" id="score">
+        <!-- <div class="flex justify-center hidden items-center" id="score">
             <span class="hello"></span>
      </div>  -->
         <!-- spead texttying -->
-        <div class="flex-[1] flex justify-center hidden items-center" id="speedTexting">
+        <div class="flex-[1] flex justify-center hidden  items-center" id="speedTexting">
                <div class="flex flex-col" >
                 <!-- text showing to be typed -->
-                <div class="flex-[0.1] flex items-center pl-5 text-white text-xl" id="timer">3</div>
+                <div class="flex-[0.1] flex items-center pl-5 text-white text-xl" id="timer">30</div>
                 <div class="flex-[0.2]  flex items-center justify-center" id="displayedText">
-                    <div class="flex-[0.85] h-44 text-lg">Christmas is a time of joy, giving, and love. I am thankful for everyone in my life and the blessings of this year. May the holiday season bring happiness and peace to all.</div>
+                    <div class="flex-[0.85] h-44 text-lg" id="wordsdisplayed">Success is the sum of small efforts repeated daily <br> learning to type is learning to think fast</div>
                 </div> 
                 <!--input for user to types -->
                 <div class="flex-[0.43] flex-col  flex">  
@@ -71,10 +71,10 @@
                 <!-- displaying user last scor and current score -->
                 <div class="flex-[0.2] flex">
                     <div class="flex pl-5 text-lg text-gray-200 items-center flex-[0.5]">
-                        <div>Highest score is : <em id="HighestScore"></em></div>
+                        <div>Highest speed is : <em id="HighestScore">0</em></div>
                     </div>
                     <div class="flex pl-5 text-lg text-gray-200  items-center justify-start flex-[0.5]">
-                        <div>Current score is : <em id="CurrentScore"></em></div>
+                        <div><em id="CurrentScore"></em></div>
                     </div>
                     
                 </div>

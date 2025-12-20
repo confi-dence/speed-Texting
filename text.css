@@ -146,6 +146,11 @@ z-index: 1;
 #displayedText{
 color: #b8b8b8;
 }
+#displayedText >div{
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 #userTyped{
     width: 90%;
     height: 20vh;
@@ -178,7 +183,7 @@ button{
 }
 @media screen and (max-width:400px) {
     #WelcomeMessage> h1{
-         font-size: 55px;
+         font-size: 58px;
     }
     @keyframes bounce {
         100%{
