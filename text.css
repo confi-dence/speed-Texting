@@ -3,8 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-.main{
-    /* height: 400vh; */
+body{
+    height: 100dvb;
 }
 #WelcomeMessage> h1 {
     position: relative;
@@ -81,7 +81,7 @@
 span{
     background-color: #8A0000;
 position: absolute;
-border-radius: 20px;
+ border-radius: 20px;
 inset: 5px;
 z-index: 1;
 }
@@ -103,7 +103,6 @@ z-index: 1;
     border-radius: 20px;
     width: 90%;
     max-width: 600px;
-    
     box-shadow:
     0 1px 0 #ccc,
     0 2px 0 #ccc,
@@ -154,12 +153,12 @@ color: #b8b8b8;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    position: fixed;
-    margin-top: 25vh;
+    /* position: fixed;
+    margin-top: 25vh; */
 }
 #timer{
-    position: fixed;
-    margin-top: 2vh;
+    /* position: fixed;
+    margin-top: 2vh; */
 }
 #userTyped{
     width: 90%;
@@ -198,7 +197,7 @@ button{
     }
     @keyframes bounce {
         100%{
-            transform: translateY(-20px);
+            transform: translateY(-25px);
         }
     }
     #countDown>h1 , #counting{

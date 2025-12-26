@@ -57,7 +57,7 @@ setTimeout(() => {
 
 // countDown 30 to 0
 
-let time = 60;
+let time = 10;
 let started = false;
 let interval;
 function CountDown() {
@@ -108,9 +108,9 @@ function calculateWPM() {
 //   to refresh everything once take texst button is triggered
 
 takeTest.addEventListener('click', function ( ) {
-    if(time === -1){
+   
         clearInterval(interval);
-        time = 60;
+        time = 20;
         timerDisplay.textContent = time;
         started = false;
         userTyped.disabled = false
@@ -119,7 +119,7 @@ takeTest.addEventListener('click', function ( ) {
         CurrentScore.innerText = ""
         startTime = null;
         CurrentScore.innerText = 'Current Speed:'
-    }
+    
 })
 
 
@@ -138,5 +138,5 @@ function updateHighestScore(currentValue) {
 const savemode = localStorage.getItem('highestScore')
 
 if(savemode !== null){
-    HighestScore.textContent = savemode;
+    HighestScore.textContent = savemode + 'WPM';
 }
