@@ -7,9 +7,10 @@ bouncingdot = document.getElementById("bouncingdot"),
 speedTexting = document.getElementById("speedTexting"),
 userTyped = document.getElementById("userTyped"),
 timerDisplay = document.getElementById("timer"),
-takeTest = document.getElementById("takeTest"),
+StartAgain = document.getElementById("takeTest"),
 CurrentScore = document.getElementById("CurrentScore"),
-HighestScore = document.getElementById("HighestScore")
+HighestScore = document.getElementById("HighestScore"),
+reward = document.getElementById("reward")
 
 
 if(WelcomeMessage){
@@ -55,14 +56,14 @@ setTimeout(() => {
 
 
 
-// countDown 30 to 0
+// countDown 45  to 0
 
-let time = 10;
+let time = 60;
 let started = false;
 let interval;
 function CountDown() {
-
-    if (started) return; // prevent multiple intervals
+// prevent multiple intervals
+    if (started) return; 
     started = true;
   
     interval = setInterval(() => {
@@ -70,12 +71,18 @@ function CountDown() {
       time--;
   
       if (time < 0) {
-        clearInterval(interval);
-        userTyped.disabled = true; // stop typing
-        calculateWPM()
+        endText()
       }
-    }, 1000);
-}   
+    }, 100);
+} 
+// to reset everything
+
+function endText(params) {
+    clearInterval(interval);
+    // stop typing
+   userTyped.disabled = true;
+   calculateWPM()
+}
 
 // trigger coundown once tying
 // start calulating word per mins
@@ -86,8 +93,10 @@ userTyped.addEventListener("input", function (params) {
     if (!startTime) {
         startTime = Date.now();
     }
-    // calculateWPM();   
- 
+    // calculateWPM();
+         if(userTyped.value.toLowerCase().includes('learning to think fast')){
+            endText()
+         }
 });
 
 
@@ -107,10 +116,10 @@ function calculateWPM() {
 
 //   to refresh everything once take texst button is triggered
 
-takeTest.addEventListener('click', function ( ) {
+StartAgain.addEventListener('click', function ( ) {
    
         clearInterval(interval);
-        time = 20;
+        time = 60;
         timerDisplay.textContent = time;
         started = false;
         userTyped.disabled = false
@@ -122,21 +131,35 @@ takeTest.addEventListener('click', function ( ) {
     
 })
 
+function rewardTimeOut(params) {
+    setTimeout(() => {
+        reward.innerText = ''
+    }, 5000);
+}
 
 function updateHighestScore(currentValue) {
     const highestValue = Number(HighestScore.textContent) || Infinity;
 
     if(userTyped.value.toLowerCase().includes('learning to think fast')){
-        if (currentValue < highestValue) {
+        if (currentValue > highestValue) {
             HighestScore.textContent = currentValue;
             localStorage.setItem('highestScore',currentValue)
-        }else if (currentValue > highestValue){
-           (HighestScore).textContent = `${highestValue} WPM`;
+            reward.innerText = 'WINNER 🎉🎉🎉'
+            rewardTimeOut()
+            
+        } else if(userTyped.value.toLowerCase().includes('learning to think fas')){
+            reward.innerText = 'Good job 👍'
+            rewardTimeOut()
         }
+    }else{
+        reward.innerText = 'Ouch 💔🤧'
+        rewardTimeOut()
     }
 }
 const savemode = localStorage.getItem('highestScore')
 
 if(savemode !== null){
-    HighestScore.textContent = savemode + 'WPM';
+    HighestScore.textContent = savemode;
 }
+
+
