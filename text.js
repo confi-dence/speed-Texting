@@ -58,7 +58,7 @@ setTimeout(() => {
 
 // countDown 45  to 0
 
-let time = 60;
+let time = 45;
 let started = false;
 let interval;
 function CountDown() {
@@ -73,7 +73,7 @@ function CountDown() {
       if (time < 0) {
         endText()
       }
-    }, 100);
+    }, 1000);
 } 
 // to reset everything
 
@@ -119,7 +119,7 @@ function calculateWPM() {
 StartAgain.addEventListener('click', function ( ) {
    
         clearInterval(interval);
-        time = 60;
+        time = 45;
         timerDisplay.textContent = time;
         started = false;
         userTyped.disabled = false
