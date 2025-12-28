@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="text.css"> 
 </head>
 
-<body class="box-border overflow-hidden flex font-bold justify-center items-center p-0 m-0 italic font-medium h-screen w-full" >
+<body class="box-border overflow-hidden flex font-extrabold justify-center items-center p-0 m-0 italic font-medium h-screen w-full" >
 
     <!-- styling background color -->
     <div class="bar-animation  h-screen flex flex-[1] absolute">
@@ -51,10 +51,18 @@
             <span class="hello"></span>
      </div>  -->
         <!-- spead texttying -->
-        <div class="flex-[1] flex justify-center hidden items-center" id="speedTexting">
-               <div class="flex flex-col" >
+        <div class="flex-[1] flex hidden justify-center items-center" id="speedTexting">
+
+                <div id="QuickMessage" class="pt-16 absolute text-lg flex justify-center flex-[1]">
+                   <div>
+                    <h2>Start by tying.......</h2>
+                    <p class="pl-5 pt-5">Success is the sum  of small efforts repeated daily <br> learning to type is learning to think fast</p>
+                   </div>
+                </div>
+            
+            <div class="flex flex-col" id="maindashbox">
                 <!-- text showing to be typed -->
-                <div class="flex-[0.1] flex items-center  pl-5 text-white text-xl" id="timer">45</div>
+                <div class="flex-[0.1] flex items-center  pl-5 text-white text-xl" id="timer">60</div>
                 <div class="flex-[0.2] flex-col flex justify-center pl-8" id="displayedText">
                     <div class="flex-[0.8]  h-44 text-lg" id="wordsdisplayed">Success is the sum of small efforts repeated daily <br> learning to type is learning to think fast</div>
                     <div id="reward" class="flex justify-end pr-8"></div>
@@ -65,8 +73,9 @@
                         <!-- <textarea type="text" name="" class="flex justify-start items-start"  id="userTyped" placeholder="start typing here...">< -->
                           <textarea name="" rows="5" class="pl-2 resize-none" placeholder="start typing here..." id="userTyped"></textarea>
                     </div>
-                    <div class="flex-[0.25] flex items-end pl-5" id="restartButton">
+                    <div class="flex-[0.25] flex justify-between  pr-8  items-end pl-5" id="restartButton">
                         <button class=" text-lg pl-1.5 text-gray-200 pr-1.5" id="takeTest">Start Again</button>
+                        <button class=" text-lg pl-1.5 text-gray-200  pr-1.5" id="Reset">Reset</button>
                     </div>
                 </div>
                 <!-- displaying user last scor and current score -->

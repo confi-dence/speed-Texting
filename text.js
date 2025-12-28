@@ -10,7 +10,10 @@ timerDisplay = document.getElementById("timer"),
 StartAgain = document.getElementById("takeTest"),
 CurrentScore = document.getElementById("CurrentScore"),
 HighestScore = document.getElementById("HighestScore"),
-reward = document.getElementById("reward")
+reward = document.getElementById("reward"),
+Reset = document.getElementById("Reset"),
+QuickMessage = document.getElementById("QuickMessage"),
+maindashbox = document.getElementById("maindashbox")
 
 
 if(WelcomeMessage){
@@ -44,9 +47,16 @@ function StartAfterWelcome(params) {
         if(timeReady < 0){
             countDown.style.display = "none"
             speedTexting.style.display = "flex"
+            
         }
     }, 1000);
-}
+    maindashbox.classList.add('welcomeOpacity')
+    setTimeout(() => {
+            maindashbox.classList.remove('welcomeOpacity')
+                    QuickMessage.style.display = 'none'
+             }, 7000);
+    }
+    // QuickMessage.innerText = ' Start by tying.....'
 
 
 // adding my animation for the counting Numbers
@@ -58,7 +68,7 @@ setTimeout(() => {
 
 // countDown 45  to 0
 
-let time = 45;
+let time = 60;
 let started = false;
 let interval;
 function CountDown() {
@@ -75,7 +85,7 @@ function CountDown() {
       }
     }, 1000);
 } 
-// to reset everything
+// to  everything
 
 function endText(params) {
     clearInterval(interval);
@@ -116,19 +126,25 @@ function calculateWPM() {
 
 //   to refresh everything once take texst button is triggered
 
-StartAgain.addEventListener('click', function ( ) {
+function Beginnering(params) {
+    clearInterval(interval);
+    time = 60;
+    timerDisplay.textContent = time;
+    started = false;
+    userTyped.disabled = false
+    userTyped.value = "";
    
-        clearInterval(interval);
-        time = 45;
-        timerDisplay.textContent = time;
-        started = false;
-        userTyped.disabled = false
-        CountDown()
-        userTyped.value = "";
-        CurrentScore.innerText = ""
-        startTime = null;
-        CurrentScore.innerText = 'Current Speed:'
-    
+    startTime = null;
+    CurrentScore.innerText = 'Current Speed:'
+
+}
+
+StartAgain.addEventListener('click',Beginnering
+)
+
+Reset.addEventListener('click', function (params) {
+  HighestScore.innerText = 0
+  Beginnering()
 })
 
 function rewardTimeOut(params) {
@@ -138,7 +154,7 @@ function rewardTimeOut(params) {
 }
 
 function updateHighestScore(currentValue) {
-    const highestValue = Number(HighestScore.textContent) || Infinity;
+    const highestValue = Number(HighestScore.textContent);
 
     if(userTyped.value.toLowerCase().includes('learning to think fast')){
         if (currentValue > highestValue) {
