@@ -202,7 +202,7 @@ function updateHighestScore(currentValue) {
         rewardTimeOut()
     }
 }
-window.addEventListener('load' , updateHighestScore)
+
 const savemode = localStorage.getItem('highestScore')
 
 if(savemode !== null){
