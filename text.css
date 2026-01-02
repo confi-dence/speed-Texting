@@ -157,15 +157,16 @@ z-index: 1;
 color: #d8d8d8;
 
 }
-#QuickMessage{
+/* #QuickMessage{
     background-color: none;
     width: 80%;
 
-}
+} */
 #wordsdisplayed{
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    width:95%;
     /* position: fixed;
     margin-top: 25vh; */
 }
