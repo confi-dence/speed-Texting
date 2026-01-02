@@ -12,8 +12,8 @@ CurrentScore = document.getElementById("CurrentScore"),
 HighestScore = document.getElementById("HighestScore"),
 reward = document.getElementById("reward"),
 Reset = document.getElementById("Reset"),
-QuickMessage = document.getElementById("QuickMessage"),
-maindashbox = document.getElementById("maindashbox")
+maindashbox = document.getElementById("maindashbox"),
+wordsdisplayed = document.getElementById("wordsdisplayed")
 
 
 if(WelcomeMessage){
@@ -50,11 +50,6 @@ function StartAfterWelcome(params) {
             
         }
     }, 1000);
-    maindashbox.classList.add('welcomeOpacity')
-    setTimeout(() => {
-            maindashbox.classList.remove('welcomeOpacity')
-                    QuickMessage.style.display = 'none'
-             }, 7000);
     }
     // QuickMessage.innerText = ' Start by tying.....'
 
@@ -97,16 +92,28 @@ function endText(params) {
 // trigger coundown once tying
 // start calulating word per mins
 let startTime = null
-
-userTyped.addEventListener("input", function (params) {
+let phrases = [
+    'learning to think fast',
+    'speed and confidence fast',
+    'brings fast results and focus',
+    'day to get better',
+    'confidence speed and skill',
+    'day to improve skill',
+    'to get better quickly',
+    'build confidence and speed'
+  ];
+  userTyped.addEventListener("input", function (params) {
     CountDown();
     if (!startTime) {
         startTime = Date.now();
     }
     // calculateWPM();
-         if(userTyped.value.toLowerCase().includes('learning to think fast')){
-            endText()
-         }
+    
+    let typed = userTyped.value.toLowerCase();
+         if (phrases.some(p => typed.includes(p))) {
+            endText();
+          }
+
 });
 
 
@@ -136,11 +143,34 @@ function Beginnering(params) {
    
     startTime = null;
     CurrentScore.innerText = 'Current Speed:'
-
 }
 
-StartAgain.addEventListener('click',Beginnering
+// randomText
+
+
+StartAgain.addEventListener('click', function (params) {
+    Beginnering()
+    CountDown();
+    runText()
+}
 )
+function runText(params) {
+    let text = [
+       "Learning to type is learning to think fast.\n Practice a little every day to improve skill.",
+       "Typing fast helps you learn new words quickly.\n Practice daily to grow speed and confidence fast.",
+       "Good typing makes work easier and saves time. \n Small daily practice brings fast results and focus.",
+       "Learning to type helps you work faster today. \n Practice a little each day to get better.",
+       "Typing daily helps you write clearly and fast. \n Daily effort builds confidence speed and skill.",
+       "Typing fast makes work and study less stressful. \n Practice every day to build confidence and speed.",
+       "Success is the sum of small efforts repeated daily.\n Learning to type is learning to think fast",
+       "Typing daily helps your mind stay sharp and fast. \n Practice a little every day to get better quickly."
+    ]
+    
+    let textIndex= text[ Math.floor(Math.random()* text.length)]
+    wordsdisplayed.innerText = textIndex
+    
+}
+runText()
 
 Reset.addEventListener('click', function (params) {
   HighestScore.innerText = 0
@@ -155,15 +185,15 @@ function rewardTimeOut(params) {
 
 function updateHighestScore(currentValue) {
     const highestValue = Number(HighestScore.textContent);
-
-    if(userTyped.value.toLowerCase().includes('learning to think fast')){
+    let typed = userTyped.value.toLowerCase();
+    if( phrases.some(p => typed.includes(p)) ){
         if (currentValue > highestValue) {
-            HighestScore.textContent = currentValue;
+            HighestScore.textContent = currentValue ;
             localStorage.setItem('highestScore',currentValue)
             reward.innerText = 'WINNER 🎉🎉🎉'
             rewardTimeOut()
             
-        } else if(userTyped.value.toLowerCase().includes('learning to think fas')){
+        } else if(phrases.some(p => typed.includes(p))) {
             reward.innerText = 'Good job 👍'
             rewardTimeOut()
         }
@@ -175,7 +205,6 @@ function updateHighestScore(currentValue) {
 const savemode = localStorage.getItem('highestScore')
 
 if(savemode !== null){
-    HighestScore.textContent = savemode;
+    HighestScore.textContent = savemode ;
 }
-
 
