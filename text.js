@@ -170,7 +170,7 @@ function runText(params) {
     wordsdisplayed.innerText = textIndex
     
 }
-runText()
+window.addEventListener('load', runText)
 
 Reset.addEventListener('click', function (params) {
   HighestScore.innerText = 0
