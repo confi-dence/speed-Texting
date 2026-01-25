@@ -12,8 +12,13 @@ CurrentScore = document.getElementById("CurrentScore"),
 HighestScore = document.getElementById("HighestScore"),
 reward = document.getElementById("reward"),
 Reset = document.getElementById("Reset"),
+// maindashbox = document.getElementById("maindashbox"),
+wordsdisplayed = document.getElementById("wordsdisplayed"),
+modal = document.getElementById("modal"),
+close = document.getElementById("close"),
+openModal = document.getElementById("openModal"),
 maindashbox = document.getElementById("maindashbox"),
-wordsdisplayed = document.getElementById("wordsdisplayed")
+box = document.getElementById("box")
 
 
 if(WelcomeMessage){
@@ -93,15 +98,17 @@ function endText(params) {
 // start calulating word per mins
 let startTime = null
 let phrases = [
-    'learning to think fast',
-    'speed and confidence fast',
-    'brings fast results and focus',
+    'day to improve skill',
     'day to get better',
     'confidence speed and skill',
-    'day to improve skill',
-    'to get better quickly',
-    'build confidence and speed'
-  ];
+    'learning to think well',
+    'learning to think calm',
+    'learning to think fast',
+    'building to think fast',
+    'improve in skill play',
+    'perform in coding game',
+    'improve in skill play',
+];
   userTyped.addEventListener("input", function (params) {
     CountDown();
     if (!startTime) {
@@ -156,14 +163,17 @@ StartAgain.addEventListener('click', function (params) {
 )
 function runText(params) {
     let text = [
-       "Learning to type is learning to think fast.\n Practice a little every day to improve skill.",
-       "Typing fast helps you learn new words quickly.\n Practice daily to grow speed and confidence fast.",
-       "Good typing makes work easier and saves time. \n Small daily practice brings fast results and focus.",
+       "Practice a little every day to improve skill.\n Learning to type is learning to think fast.",
        "Learning to type helps you work faster today. \n Practice a little each day to get better.",
        "Typing daily helps you write clearly and fast. \n Daily effort builds confidence speed and skill.",
-       "Typing fast makes work and study less stressful. \n Practice every day to build confidence and speed.",
+       "Victory is the way of small actions repeated daily.\n Learning to type is learning to think well",
+       "Progress is the sum of small efforts repeated daily.\n Practice to type is learning to think calm",
+       "Typing daily helps you write clearly and fast. \n Daily effort builds confidence speed and skill.",
        "Success is the sum of small efforts repeated daily.\n Learning to type is learning to think fast",
-       "Typing daily helps your mind stay sharp and fast. \n Practice a little every day to get better quickly."
+       "Victory is the sum steady actions growing daily.\n Training to master is building to think fast",
+       "Focused on the joy of clean coding practice daily.\n Keyboard is easy to improve in skill play",
+       "Focused on the art of clean coding patterns today\n Keyboard is built to perform in coding game"
+       
     ]
     
     let textIndex= text[ Math.floor(Math.random()* text.length)]
@@ -192,6 +202,7 @@ function updateHighestScore(currentValue) {
             localStorage.setItem('highestScore',currentValue)
             reward.innerText = 'WINNER 🎉🎉🎉'
             rewardTimeOut()
+            updateapi()
             
         } else if(phrases.some(p => typed.includes(p))) {
             reward.innerText = 'Good job 👍'
@@ -208,4 +219,70 @@ const savemode = localStorage.getItem('highestScore')
 if(savemode !== null){
     HighestScore.textContent = savemode ;
 }
+
+
+openModal.addEventListener('click', function (params) {
+    modal.style.display= "flex"
+    getMessages()
+    speedTexting.style.display = "none"
+})
+
+close.addEventListener('click', function (params) {
+    modal.style.display= "none"
+    speedTexting.style.display = "flex"
+})
+
+// implementing the backend part of the code
+
+const api = 'http://127.0.0.1:8000/score/'
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+// const api = "http://127.0.0.1:8000/score/add/";
+
+
+function updateapi() {
+    fetch(`${api}add/`, {
+        method: "POST", 
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrftoken,
+        },
+        body: JSON.stringify({
+            username: localStorage.getItem("username"),
+            score: Number(HighestScore.textContent)
+        })
+    })
+    .then(() => getMessages())
+    .catch(err => console.error(err));
+}
+
+
+function getMessages() {
+    fetch(`${api}get/`)
+    .then(res => res.json())
+    .then(data => {
+        box.replaceChildren();
+
+        data.forEach((m, index) => {
+            const div = document.createElement("div");
+            div.textContent = `${index + 1}. ${m.username} : ${Number(m.score).toFixed(1)}`;
+            box.appendChild(div);
+            if (m.username === currentUsername) {
+                div.style.backgroundColor = "#d1f7d6";
+            }
+            
+        });
+    })
+    .catch(err => console.error(err));
+}
+
+
+const username = localStorage.getItem("username");
+
+if (!username) {
+    const name = prompt("Enter your username");
+    localStorage.setItem("username", name);
+}
+
+
 
