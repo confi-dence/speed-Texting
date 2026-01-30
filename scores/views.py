@@ -37,7 +37,7 @@ def add_scroe(request):
  
 def get_score(request):
     scores = (
-        Sendscore.objects.values("username").annotate(score=Max("score")).order_by("-score")
+        Sendscore.objects.values("username").annotate(score=Max("score")).order_by("-score")[:1000]
     )          
 
     return JsonResponse(list(scores), safe=False)
