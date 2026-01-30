@@ -14,25 +14,15 @@ def home(request):
 
 
 def add_scroe(request):
-    if request.method == "POST":
+      if request.method == "POST":
         data = json.loads(request.body)
 
-        username = data.get("username")
-        score = data.get("score")
-
-        
-        best = Sendscore.objects.filter(username=username).order_by("-score").first()
-
-        if not best or score > best.score:
-            Sendscore.objects.create(
-                username=username,
-                score=score
-            )
+        Sendscore.objects.create(
+            username=data.get("username"),
+            score=data.get("score")
+        )
 
         return JsonResponse({"status": "saved"})
-
-
-        
 
  
 def get_score(request):
