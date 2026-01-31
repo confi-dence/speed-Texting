@@ -93,7 +93,7 @@ z-index: 1;
         transform: rotate(360deg);
     }
 }
-#speedTexting{
+#speedTexting, #list{
     height: inherit;
     width: inherit;
     
@@ -113,7 +113,7 @@ z-index: 1;
     box-shadow:
     0 1px 0 #ccc,
     0 2px 0 #ccc,
-    0 3px 0 #ccc,
+    0 3px 0 #ccc, 
     0 4px 0 #ccc,
     0 7px 4px rgba(255, 255, 255, .4);
 
@@ -152,33 +152,23 @@ z-index: 1;
 .welcomeOpacity{
     opacity: 0.01;
 }
-#displayedText,#QuickMessage{
+#displayedText,#QuickMessage, #box{
 color: #d8d8d8;
 
 }
-/* #QuickMessage{
-    background-
-    color: none;
-    width: 80%;
 
-} */
 #wordsdisplayed{
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     width:95%;
-    /* position: fixed;
-    margin-top: 25vh; */
+    
 }
 textarea{
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-}
-#timer{
-    /* position: fixed;
-    margin-top: 2vh; */
 }
 #userTyped{
     width: 90%;
@@ -223,7 +213,7 @@ button{
     #countDown>h1 , #counting{
         font-size: 40px;
     }
-    #speedTexting > div{
+    #speedTexting > div, #list{
         width: 100%;
         height: 100%;
     }
