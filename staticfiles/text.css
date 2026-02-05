@@ -103,9 +103,8 @@ z-index: 1;
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
     
 } */
-#speedTexting > div,#list{
+#speedTexting > div,#modal > div{
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
-
     height: 85%;
     border-radius: 20px;
     width: 90%;
@@ -113,11 +112,12 @@ z-index: 1;
     box-shadow:
     0 1px 0 #ccc,
     0 2px 0 #ccc,
-    0 3px 0 #ccc,
+    0 3px 0 #ccc, 
     0 4px 0 #ccc,
     0 7px 4px rgba(255, 255, 255, .4);
 
 }
+
 #counting>p{
     animation: bouncedot 0.5s ease infinite alternate ;
     animation-delay: calc(0.1s * var(--i));
@@ -152,33 +152,23 @@ z-index: 1;
 .welcomeOpacity{
     opacity: 0.01;
 }
-#displayedText,#QuickMessage{
+#displayedText,#QuickMessage, #box{
 color: #d8d8d8;
 
 }
-/* #QuickMessage{
-    background-
-    color: none;
-    width: 80%;
 
-} */
 #wordsdisplayed{
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     width:95%;
-    /* position: fixed;
-    margin-top: 25vh; */
+    
 }
 textarea{
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-}
-#timer{
-    /* position: fixed;
-    margin-top: 2vh; */
 }
 #userTyped{
     width: 90%;
@@ -201,6 +191,7 @@ button{
     box-shadow: 0 0 1px white inset;
 }
 
+
 @media screen and (max-width:600px) {
     #WelcomeMessage> h1{
         font-size: 80px;
@@ -208,7 +199,6 @@ button{
     #countDown>h1 , #counting{
         font-size: 50px;
     }
- 
 
 }
 @media screen and (max-width:400px) {
@@ -223,7 +213,7 @@ button{
     #countDown>h1 , #counting{
         font-size: 40px;
     }
-    #speedTexting > div{
+    #speedTexting > div, #modal > div{
         width: 100%;
         height: 100%;
     }

@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from django.http import HttpRequest, JsonResponse
+from django.http import JsonResponse
 
 from .models import Sendscore
 from django.db.models import Max
@@ -9,8 +9,6 @@ from django.db.models import Max
 
 def home(request):
     return render(request , "text.html")
-
-
 
 
 def add_scroe(request):

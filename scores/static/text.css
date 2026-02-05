@@ -93,7 +93,7 @@ z-index: 1;
         transform: rotate(360deg);
     }
 }
-#speedTexting, #list{
+#speedTexting{
     height: inherit;
     width: inherit;
     
@@ -103,9 +103,8 @@ z-index: 1;
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
     
 } */
-#speedTexting > div,#list{
+#speedTexting > div,#modal > div{
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
-
     height: 85%;
     border-radius: 20px;
     width: 90%;
@@ -118,6 +117,7 @@ z-index: 1;
     0 7px 4px rgba(255, 255, 255, .4);
 
 }
+
 #counting>p{
     animation: bouncedot 0.5s ease infinite alternate ;
     animation-delay: calc(0.1s * var(--i));
@@ -191,6 +191,7 @@ button{
     box-shadow: 0 0 1px white inset;
 }
 
+
 @media screen and (max-width:600px) {
     #WelcomeMessage> h1{
         font-size: 80px;
@@ -198,7 +199,6 @@ button{
     #countDown>h1 , #counting{
         font-size: 50px;
     }
- 
 
 }
 @media screen and (max-width:400px) {
@@ -213,7 +213,7 @@ button{
     #countDown>h1 , #counting{
         font-size: 40px;
     }
-    #speedTexting > div, #list{
+    #speedTexting > div, #modal > div{
         width: 100%;
         height: 100%;
     }
