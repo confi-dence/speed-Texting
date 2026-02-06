@@ -11,22 +11,56 @@ def home(request):
     return render(request , "text.html")
 
 
-def add_scroe(request):
-      if request.method == "POST":
-        data = json.loads(request.body)
+# def add_scroe(request):
+#       if request.method == "POST":
+#         data = json.loads(request.body)
 
-        Sendscore.objects.create(
-            username=data.get("username"),
-            score=data.get("score")
-        )
-        return JsonResponse({"status": "saved"})
+#         Sendscore.objects.create(
+#             username=data.get("username"),
+#             score=data.get("score")
+#         )
+#         return JsonResponse({"status": "saved"})
 
  
+def add_scroe(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        username = data.get("username").strip().lower()
+        score = float(data.get("score"))
+
+        obj, created = Sendscore.objects.get_or_create(
+            username=username,
+            defaults={"score": score}
+        )
+
+        # Only update if new score is higher
+        if not created and score > obj.score:
+            obj.score = score
+            obj.save()
+
+        return JsonResponse({"status": "saved"})
+
+
+# def get_score(request):
+#     scores = Sendscore.objects.all()
+#     scores = (
+#         Sendscore.objects
+#         .values("username")
+#         .annotate(score=Max("score"))
+#         .order_by("-score")[:1000]
+
+#     )
+
+    
+#     print(list(scores))
+#     return JsonResponse(list(scores), safe=False)
+    
+
 def get_score(request):
-    scores = (
-        Sendscore.objects
-        .values("username")
-        .annotate(score=Max("score"))
-        .order_by("-score")[:1000]
-    )
-    return JsonResponse(list(scores), safe=False)
+    messages = Sendscore.objects.all().order_by("-score")
+    data =[
+        {"username": m.username, "score":m.score}
+        for m in messages
+    ]
+    return JsonResponse(data, safe=False)

@@ -265,16 +265,18 @@ function getMessages() {
 
         data.forEach((m, index) => {
             const div = document.createElement("div");
-            div.textContent = `${index + 1}. ${m.username} : ${Number(m.score).toFixed(1)}`;
+            div.textContent = `${index + 1}. ${m.username} :  ${Number(m.score).toFixed(1)}`;
             box.appendChild(div);
-            if (m.username === currentUsername) {
-                div.style.backgroundColor = "#d1f7d6";
+            if (m.username === username) {
+                div.style.backgroundColor = "#E6F0FF";
             }
             
         });
     })
     .catch(err => console.error(err));
 }
+
+
 
 
 const username = localStorage.getItem("username");
