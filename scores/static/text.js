@@ -11,12 +11,12 @@ StartAgain = document.getElementById("takeTest"),
 CurrentScore = document.getElementById("CurrentScore"),
 HighestScore = document.getElementById("HighestScore"),
 reward = document.getElementById("reward"),
-Reset = document.getElementById("Reset"),
+
 // maindashbox = document.getElementById("maindashbox"),
 wordsdisplayed = document.getElementById("wordsdisplayed"),
 modal = document.getElementById("modal"),
 close = document.getElementById("close"),
-openModal = document.getElementById("openModal"),
+openModals = document.getElementById("openModal"),
 maindashbox = document.getElementById("maindashbox"),
 box = document.getElementById("box")
 
@@ -182,10 +182,7 @@ function runText(params) {
 }
 window.addEventListener('load', runText)
 
-Reset.addEventListener('click', function (params) {
-  HighestScore.innerText = 0
-  Beginnering()
-})
+
 
 function rewardTimeOut(params) {
     setTimeout(() => {
@@ -221,7 +218,7 @@ if(savemode !== null){
 }
 
 
-openModal.addEventListener('click', function (params) {
+openModals.addEventListener('click', function (params) {
     modal.style.display= "flex"
     getMessages()
     speedTexting.style.display = "none"
@@ -267,9 +264,7 @@ function getMessages() {
             const div = document.createElement("div");
             div.textContent = `${index + 1}. ${m.username} :  ${Number(m.score).toFixed(1)}`;
             box.appendChild(div);
-            if (m.username === username) {
-                div.style.backgroundColor = "#E6F0FF";
-            }
+     
             
         });
     })

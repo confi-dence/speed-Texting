@@ -13,7 +13,7 @@ def home(request):
 
 # def add_scroe(request):
 #       if request.method == "POST":
-#         data = json.loads(request.body)
+#         data = json.loads(request.bodpythony)
 
 #         Sendscore.objects.create(
 #             username=data.get("username"),
@@ -35,7 +35,7 @@ def add_scroe(request):
         )
 
         # Only update if new score is higher
-        if not created and score > obj.score:
+        if not created and score  > obj.score:
             obj.score = score
             obj.save()
 

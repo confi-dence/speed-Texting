@@ -1,0 +1,58 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment (VERY IMPORTANT)
+venv/
+env/
+ENV/
+.virtualenv/
+
+# Environment variables (SECRET KEYS!)
+.env
+
+# Django stuff
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# Static files (DO NOT PUSH THIS)
+staticfiles/
+
+# Media uploads (optional)
+media/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Node (if you ever add Tailwind locally)
+node_modules/
+
+# migrations cache (keep migrations but ignore pycache)
+**/migrations/__pycache__/
+
+# coverage reports
+htmlcov/
+.coverage
+coverage.xml
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Render sometimes creates this
+.render.yaml
+
+# Git line endings warning prevention
+*.txt text eol=lf
+*.py text eol=lf

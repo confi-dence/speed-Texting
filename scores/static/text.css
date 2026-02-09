@@ -190,7 +190,10 @@ button{
     border-radius: 20px;
     box-shadow: 0 0 1px white inset;
 }
-
+#boxcontainer{
+    scrollbar-color:      #4f5553 #2e2e302d;
+    overflow-y: auto;
+}
 
 @media screen and (max-width:600px) {
     #WelcomeMessage> h1{
