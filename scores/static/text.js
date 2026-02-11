@@ -221,12 +221,17 @@ if(savemode !== null){
 openModals.addEventListener('click', function (params) {
     modal.style.display= "flex"
     getMessages()
-    speedTexting.style.display = "none"
+    Beginnering()
+    HighestScore.textContent = 0
+    // speedTexting.style.display = "none"
+    speedTexting.classList.add('welcomeOpacity')
 })
 
 close.addEventListener('click', function (params) {
     modal.style.display= "none"
     speedTexting.style.display = "flex"
+    speedTexting.classList.remove('welcomeOpacity')
+
 })
 
 // implementing the backend part of the code

@@ -9,101 +9,111 @@
     <link rel="stylesheet" href="{% static 'text.css' %}">
 </head>
 
-<body class="box-border overflow-hidden flex font-extrabold justify-center items-center p-0 m-0 italic font-medium h-screen w-full" >
+<body class="box-border overflow-hidden flex font-extrabold justify-center items-center p-0 m-0 italic font-medium h-screen w-full">
 
     <!-- styling background color -->
-    <div class="bar-animation  h-screen flex flex-[1] absolute">
-        <div class="bar barRemove " style="--i:7;"></div>
-        <div class="bar  " style="--i:6;"></div>
+    <div class="bar-animation h-screen flex flex-[1] absolute">
+        <div class="bar barRemove" style="--i:7;"></div>
+        <div class="bar" style="--i:6;"></div>
         <div class="bar" style="--i:5;"></div>
-        <div class="bar " style="--i:4;"></div>
+        <div class="bar" style="--i:4;"></div>
         <div class="bar" style="--i:3;"></div>
         <div class="bar" style="--i:2;"></div>
         <div class="bar" style="--i:1;"></div>
     </div>
+
     <!-- main body -->
-    <div class="main justify-center items-center  flex-[1] h-screen w-full flex-col flex">   
+    <div class="main justify-center items-center flex-[1] h-screen w-full flex-col flex">
+
         <!-- welcome message -->
-        <div class="text-white  justify-center items-center flex flex-[1]" id="WelcomeMessage">
+        <div class="text-white justify-center items-center flex flex-[1]" id="WelcomeMessage">
             <h1 class="text-8xl">W</h1>
-            <h1 class="text-8xl"  style="--i:1;">e</h1>
-            <h1 class="text-8xl"  style="--i:2;">l</h1>
-            <h1 class="text-8xl"  style="--i:3;">c</h1>
-            <h1 class="text-8xl"  style="--i:4;">o</h1>
-            <h1 class="text-8xl"  style="--i:5;">m</h1>
-            <h1 class="text-8xl"  style="--i:6;">e</h1>
+            <h1 class="text-8xl" style="--i:1;">e</h1>
+            <h1 class="text-8xl" style="--i:2;">l</h1>
+            <h1 class="text-8xl" style="--i:3;">c</h1>
+            <h1 class="text-8xl" style="--i:4;">o</h1>
+            <h1 class="text-8xl" style="--i:5;">m</h1>
+            <h1 class="text-8xl" style="--i:6;">e</h1>
         </div>
-        <!-- timer to display count down  then it will automation bring up the textTying -->
-        <div class=" text-white hidden justify-center gap-y-6 flex-col items-center flex  flex-[1]" id="countDown">
-        
+
+        <!-- countdown -->
+        <div class="text-white hidden justify-center gap-y-6 flex-col items-center flex flex-[1]" id="countDown">
             <h1 class="text-6xl">ARE YOU READY</h1>
-            <div class="text-6xl flex justify-center   items-center" id="counting">
-                <h1 id="countingnumber">3</h1>    
+            <div class="text-6xl flex justify-center items-center" id="counting">
+                <h1 id="countingnumber">3</h1>
                 <p style="--i:1;" class="ml-1">.</p>
                 <p style="--i:2;">.</p>
                 <p style="--i:3;">.</p>
             </div>
-          
         </div>
-        <!-- to dispaly user highet score and last score
-        when the user has be welcomed before -->
-        <!-- <div class="flex justify-center hidden items-center" id="score">
-            <span class="hello"></span>
-     </div>  -->
-        <!-- spead texttying -->
+
+        <!-- speed texting -->
         <div class="flex-[1] flex hidden justify-center items-center" id="speedTexting">
+
             <div class="flex flex-col" id="maindashbox">
-                <!-- text showing to be typed -->
-                <div class="flex-[0.1] flex items-center  pl-5 text-white text-xl" id="timer">60</div>
+
+                <!-- timer -->
+                <div class="flex-[0.1] flex items-center pl-5 text-white text-xl" id="timer">60</div>
+
+                <!-- displayed text -->
                 <div class="flex-[0.2] flex-col flex justify-center pl-8" id="displayedText">
                     <div class="flex-[0.8] h-44 text-lg" id="wordsdisplayed"></div>
                     <div id="reward" class="flex justify-end pr-8"></div>
-                    
-                </div> 
-                <!--input for user to types -->
-                <div class="flex-[0.43] flex-col  flex">  
+                </div>
+
+                <!-- input -->
+                <div class="flex-[0.43] flex-col flex">
                     <div class="flex-[0.75] flex justify-center items-center flex-col">
-                        <!-- <textarea type="text" name="" class="flex justify-start items-start"  id="userTyped" placeholder="start typing here...">< -->
-                          <textarea name="" rows="5" class="pl-2 resize-none"  placeholder="Type The Text Above... "  id="userTyped"></textarea>
+                        <textarea rows="5" class="pl-2 resize-none"
+                            placeholder="Type The Text Above..." id="userTyped"></textarea>
                     </div>
-                    <div class="flex-[0.25] flex justify-between  pr-8  items-end pl-5" id="restartButton">
-                        <button class=" text-lg pl-1.5 text-gray-200 pr-1.5" id="takeTest">Start Again</button>
-                        <button class=" text-lg pl-1.5 text-gray-200  pr-1.5" id="openModal">View</button>
-                       
+
+                    <div class="flex-[0.25] flex justify-between pr-8 items-end pl-5" id="restartButton">
+                        <button class="text-lg pl-1.5 text-gray-200 pr-1.5" id="takeTest">Start Again</button>
+                        <button class="text-lg pl-1.5 text-gray-200 pr-1.5" id="openModal">View</button>
                     </div>
                 </div>
-                <!-- displaying user last scor and current score -->
-                <div class="flex-[0.2] flex" id="highCurrent">
-                    <div class="flex pl-5  text-lg text-gray-200 items-center flex-[0.5]">
-                        <div class="pl-1 pr-1" >Highest speed is : <em id="HighestScore">0</em> WPM</div>
 
+                <!-- scores -->
+                <div class="flex-[0.2] flex" id="highCurrent">
+                    <div class="flex pl-5 text-lg text-gray-200 items-center flex-[0.5]">
+                        <div class="pl-1 pr-1">Highest speed is : <em id="HighestScore">0</em> WPM</div>
                     </div>
-                    <div class="flex pl-5 text-lg text-gray-200  items-center justify-start flex-[0.5]">
+
+                    <div class="flex pl-5 text-lg text-gray-200 items-center justify-start flex-[0.5]">
                         <div><em id="CurrentScore"></em></div>
                     </div>
-                    
-                </div>
-               
-               </div>
-            </div>
-   
-             <div class=" w-full h-screen hidden absolute flex items-center justify-center" id="modal">
-                <div id="lists" class=" flex-[1] flex-col flex justify-center">
-                    <div class="flex flex-[0.05] text-white justify-center items-center">
-                        <h2 class="text-2xl pt-2">People</h2>
-                    </div>
-                    <div class="flex-[0.9] pl-8 pt-8  overflow-auto flex" id="boxcontainer">
-                        <div class="pr-10" id="box" ></div>
-                    </div>
-                    <div class="h-16 flex justify-end items-center pr-10  text-gray-200">
-                        <div><button class="pl-2 pr-2 text-lg" id="close">close</button></div>
-                    </div>
                 </div>
 
-              
+            </div> <!-- END maindashbox -->
+
+
+           
+
+        </div> <!-- END speedTexting -->
+ <!-- modal -->
+ <div class="w-full h-screen hidden absolute flex items-center justify-center" id="modal">
+    <div id="lists" class="flex-[1] flex-col flex justify-center">
+
+        <div class="flex flex-[0.05] text-white justify-center items-center">
+            <h2 class="text-2xl pt-2">People</h2>
+        </div>
+
+        <div class="flex-[0.9] pl-8 pt-8 overflow-auto flex" id="boxcontainer">
+            <div class="pr-10" id="box"></div>
+        </div>
+
+        <div class="h-16 flex justify-end items-center pr-10 text-gray-200">
+            <button class="pl-2 pr-2 text-lg" id="close">close</button>
+        </div>
+
     </div>
-    
+</div>
+<!-- END modal -->
+    </div> <!-- END main -->
+
 </body>
+
 {% csrf_token %}
 <script src="{% static 'text.js' %}"></script>
 
