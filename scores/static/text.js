@@ -11,6 +11,7 @@ StartAgain = document.getElementById("takeTest"),
 CurrentScore = document.getElementById("CurrentScore"),
 HighestScore = document.getElementById("HighestScore"),
 reward = document.getElementById("reward"),
+rest = document.getElementById("rest"),
 
 // maindashbox = document.getElementById("maindashbox"),
 wordsdisplayed = document.getElementById("wordsdisplayed"),
@@ -222,14 +223,15 @@ openModals.addEventListener('click', function (params) {
     modal.style.display= "flex"
     getMessages()
     Beginnering()
-    HighestScore.textContent = 0
-    // speedTexting.style.display = "none"
+    HighestScore.innerText = 0
+    localStorage.removeItem('highestScore');
     speedTexting.classList.add('welcomeOpacity')
 })
 
+
+
 close.addEventListener('click', function (params) {
     modal.style.display= "none"
-    speedTexting.style.display = "flex"
     speedTexting.classList.remove('welcomeOpacity')
 
 })
@@ -282,6 +284,11 @@ function getMessages() {
 const username = localStorage.getItem("username");
 
 if (!username) {
-    const name = prompt("Enter your username");
-    localStorage.setItem("username", name);
-}
+
+        let name = prompt("Enter your username");
+        while (name.trim() === "") {
+         name =  prompt("username cannot be empty")
+        }
+        localStorage.setItem("username", name);
+} 
+

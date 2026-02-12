@@ -79,7 +79,6 @@
                     <div class="flex pl-5 text-lg text-gray-200 items-center flex-[0.5]">
                         <div class="pl-1 pr-1">Highest speed is : <em id="HighestScore">0</em> WPM</div>
                     </div>
-
                     <div class="flex pl-5 text-lg text-gray-200 items-center justify-start flex-[0.5]">
                         <div><em id="CurrentScore"></em></div>
                     </div>
@@ -92,7 +91,7 @@
 
         </div> <!-- END speedTexting -->
  <!-- modal -->
- <div class="w-full h-screen hidden absolute flex items-center justify-center" id="modal">
+ <!-- <div class="w-full h-screen hidden absolute flex items-center justify-center" id="modal">
     <div id="lists" class="flex-[1] flex-col flex justify-center">
 
         <div class="flex flex-[0.05] text-white justify-center items-center">
@@ -105,6 +104,20 @@
 
         <div class="h-16 flex justify-end items-center pr-10 text-gray-200">
             <button class="pl-2 pr-2 text-lg" id="close">close</button>
+        </div>
+
+    </div>
+</div> -->
+<div  class="w-full h-screen hidden absolute flex items-center justify-center" id="modal">
+    <div class="flex-[1] flex-col flex justify-center">
+        <div class="flex text-white justify-center items-center flex-[0.15]">
+            <h2 class="text-2xl ">People</h2>
+        </div>
+        <div class="pl-8 overflow-auto flex flex-[0.7]"  id="boxcontainer">
+            <div id="box"></div>
+        </div>
+        <div class="flex justify-end items-center pr-10 text-gray-200 flex-[0.15]">
+            <button class=" pl-2 pr-2  text-lg" id="close">close</button>
         </div>
 
     </div>
