@@ -11,15 +11,6 @@ def home(request):
     return render(request , "text.html")
 
 
-# def add_scroe(request):
-#       if request.method == "POST":
-#         data = json.loads(request.bodpythony)
-
-#         Sendscore.objects.create(
-#             username=data.get("username"),
-#             score=data.get("score")
-#         )
-#         return JsonResponse({"status": "saved"})
 
  
 def add_scroe(request):

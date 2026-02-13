@@ -222,9 +222,9 @@ if(savemode !== null){
 openModals.addEventListener('click', function (params) {
     modal.style.display= "flex"
     getMessages()
-    Beginnering()
-    HighestScore.innerText = 0
-    localStorage.removeItem('highestScore');
+    // Beginnering()
+    // HighestScore.innerText = 0
+    // localStorage.removeItem('highestScore');
     speedTexting.classList.add('welcomeOpacity')
 })
 
