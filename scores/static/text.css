@@ -103,7 +103,7 @@ z-index: 1;
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
     
 } */
-#speedTexting > div,#modal > div{
+#speedTexting > div,#modal{
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
     height: 85%;
     border-radius: 20px;
@@ -216,7 +216,7 @@ button{
     #countDown>h1 , #counting{
         font-size: 40px;
     }
-    #speedTexting > div, #modal > div{
+    #speedTexting > div, #modal{
         width: 100%;
         height: 100%;
     }

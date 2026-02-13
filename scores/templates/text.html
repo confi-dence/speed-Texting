@@ -87,9 +87,10 @@
             </div> <!-- END maindashbox -->
 
 
-           
-
+            
         </div> <!-- END speedTexting -->
+       
+        
  <!-- modal -->
  <!-- <div class="w-full h-screen hidden absolute flex items-center justify-center" id="modal">
     <div id="lists" class="flex-[1] flex-col flex justify-center">
@@ -108,9 +109,7 @@
 
     </div>
 </div> -->
-<!-- END modal -->
-</div> <!-- END main -->
-<div  class="w-full h-screen hidden absolute flex items-center justify-center" id="modal">
+<!-- <div  class="w-full h-screen hidden absolute flex items-center justify-center" id="modal">
     <div class="flex-[1] flex-col flex justify-center">
         <div class="flex text-white justify-center items-center flex-[0.15]">
             <h2 class="text-2xl ">People</h2>
@@ -123,8 +122,20 @@
         </div>
 
     </div>
-</div>
-
+</div> -->
+<!-- END modal -->
+    </div> <!-- END main -->
+    <div class="flex   flex-col  absolute hidden" id="modal">
+        <div class="flex text-white justify-center items-center flex-[0.15]">
+            <h2 class="text-2xl ">People</h2>
+        </div>
+        <div class="pl-8 overflow-auto flex flex-[0.7]"  id="boxcontainer">
+            <div id="box"></div>
+        </div>
+        <div class="flex  justify-end items-center pr-10 text-gray-200 flex-[0.15]">
+            <button class=" pl-2 pr-2  text-lg" id="close">close</button>
+        </div> 
+    </div>
 </body>
 
 {% csrf_token %}
