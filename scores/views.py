@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 from .models import Sendscore
-from django.db.models import Max
 
 # Create your views here.
 
@@ -29,21 +28,6 @@ def add_scroe(request):
 
         return JsonResponse({"status": "saved"})
 
-
-# def get_score(request):
-#     scores = Sendscore.objects.all()
-#     scores = (
-#         Sendscore.objects
-#         .values("username")
-#         .annotate(score=Max("score"))
-#         .order_by("-score")[:1000]
-
-#     )
-
-    
-#     print(list(scores))
-#     return JsonResponse(list(scores), safe=False)
-    
 
 def get_score(request):
     messages = Sendscore.objects.all().order_by("-score")
