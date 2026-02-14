@@ -164,7 +164,7 @@ StartAgain.addEventListener('click', function (params) {
 )
 function runText(params) {
     let text = [
-       "Practice a little every day to improve skill.\n Learning to type is learning to think fast.",
+    //    "Practice a little every day to improve skill.\n Learning to type is learning to think fast.",
        "Learning to type helps you work faster today. \n Practice a little each day to get better.",
        "Typing daily helps you write clearly and fast. \n Daily effort builds confidence speed and skill.",
        "Victory is the way of small actions repeated daily.\n Learning to type is learning to think well",
@@ -224,7 +224,7 @@ openModals.addEventListener('click', function (params) {
     getMessages()
     // Beginnering()
     // HighestScore.innerText = 0
-    localStorage.removeItem('highestScore');
+    // localStorage.removeItem('highestScore');
     speedTexting.classList.add('welcomeOpacity')
 })
 
