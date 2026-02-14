@@ -224,7 +224,7 @@ openModals.addEventListener('click', function (params) {
     getMessages()
     // Beginnering()
     // HighestScore.innerText = 0
-    // localStorage.removeItem('highestScore');
+    localStorage.removeItem('highestScore');
     speedTexting.classList.add('welcomeOpacity')
 })
 
