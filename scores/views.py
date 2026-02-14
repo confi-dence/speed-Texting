@@ -9,31 +9,7 @@ from django.db.models import Max
 
 def home(request):
     return render(request , "text.html")
-# scores/views.py
-from django.http import HttpResponse
-from django.contrib.auth.models import User
 
-def reset_admin_password(request):
-    # Change these to whatever you want
-    username = "admin"
-    email = "youremail@example.com"
-    new_password = "YourNewPassword123!"
-
-    # Try to get the user
-    user, created = User.objects.get_or_create(username=username, defaults={'email': email})
-    
-    # Set the password (even if user existed)
-    user.set_password(new_password)
-    user.is_superuser = True
-    user.is_staff = True
-    user.save()
-
-    if created:
-        return HttpResponse("Superuser created successfully!")
-    else:
-        return HttpResponse("Password reset successfully!")
-
- 
 def add_scroe(request):
     if request.method == "POST":
         data = json.loads(request.body)
