@@ -3,23 +3,35 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 from .models import Sendscore
+from django.db.models import Max
 
-
-from django.http import HttpResponse
-from django.contrib.auth.models import User
 # Create your views here.
 
 def home(request):
     return render(request , "text.html")
+# scores/views.py
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 def reset_admin_password(request):
-    # Replace 'admin' with your online admin username
-    user = User.objects.get(username='admin')
-    # Set a new strong password
-    user.set_password('NewStrongPassword123!')
-    user.save()
-    return HttpResponse("Password reset successful!")
+    # Change these to whatever you want
+    username = "admin"
+    email = "youremail@example.com"
+    new_password = "YourNewPassword123!"
 
+    # Try to get the user
+    user, created = User.objects.get_or_create(username=username, defaults={'email': email})
+    
+    # Set the password (even if user existed)
+    user.set_password(new_password)
+    user.is_superuser = True
+    user.is_staff = True
+    user.save()
+
+    if created:
+        return HttpResponse("Superuser created successfully!")
+    else:
+        return HttpResponse("Password reset successfully!")
 
  
 def add_scroe(request):
