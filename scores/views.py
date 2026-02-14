@@ -3,13 +3,22 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 from .models import Sendscore
-from django.db.models import Max
 
+
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 # Create your views here.
 
 def home(request):
     return render(request , "text.html")
 
+def reset_admin_password(request):
+    # Replace 'admin' with your online admin username
+    user = User.objects.get(username='admin')
+    # Set a new strong password
+    user.set_password('NewStrongPassword123!')
+    user.save()
+    return HttpResponse("Password reset successful!")
 
 
  

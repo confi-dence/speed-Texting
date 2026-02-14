@@ -17,7 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from scores.views import reset_admin_password
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("score/", include("scores.url") )
+    path("score/", include("scores.url") ),
+    path('reset-admin/', reset_admin_password)
 ]
