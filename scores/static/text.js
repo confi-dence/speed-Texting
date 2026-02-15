@@ -271,8 +271,7 @@ function getMessages() {
             const div = document.createElement("div");
             div.textContent = `${index + 1}. ${m.username} :  ${Number(m.score).toFixed(1)}`;
             box.appendChild(div);
-     
-            
+            reward.innerText = `your number ${index}`
         });
     })
     .catch(err => console.error(err));
