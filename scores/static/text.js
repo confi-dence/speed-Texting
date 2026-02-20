@@ -11,6 +11,7 @@ StartAgain = document.getElementById("takeTest"),
 CurrentScore = document.getElementById("CurrentScore"),
 HighestScore = document.getElementById("HighestScore"),
 reward = document.getElementById("reward"),
+userId = document.getElementById("userId"),
 rest = document.getElementById("rest"),
 
 // maindashbox = document.getElementById("maindashbox"),
@@ -198,9 +199,10 @@ function updateHighestScore(currentValue) {
         if (currentValue > highestValue) {
             HighestScore.textContent = currentValue ;
             localStorage.setItem('highestScore',currentValue)
-            reward.innerText = 'WINNER 🎉🎉🎉'
+           
             rewardTimeOut()
             updateapi()
+            getMessages()
             
         } else if(phrases.some(p => typed.includes(p))) {
             reward.innerText = 'Good job 👍'
@@ -224,7 +226,7 @@ openModals.addEventListener('click', function (params) {
     getMessages()
     // Beginnering()
     // HighestScore.innerText = 0
-    // localStorage.removeItem('highestScore');
+    localStorage.removeItem('highestScore');
     speedTexting.classList.add('welcomeOpacity')
 })
 
@@ -266,18 +268,44 @@ function getMessages() {
     .then(res => res.json())
     .then(data => {
         box.replaceChildren();
-
-        data.forEach((m, index) => {
+    
+        const currentIndex = data.findIndex(m => m.username === username);
+    
+     
+        let displayData = [...data]; 
+    
+        if (currentIndex >= 10) {
+            // Remove the current user from original position
+            const [currentUser] = displayData.splice(currentIndex, 1);
+    
+            // Insert them at index 10 (11th position)
+            displayData.splice(10, 0, currentUser);
+        }
+    
+        displayData.forEach((m, index) => {
             const div = document.createElement("div");
-            div.textContent = `${index + 1}. ${m.username} :  ${Number(m.score).toFixed(1)}`;
+    
+            // Use the ORIGINAL index +1 for rank display
+            const originalRank = data.findIndex(u => u.username === m.username) + 1;
+    
+            div.textContent = `${originalRank}. ${m.username} : ${Number(m.score).toFixed(1)}`;
+    
+            if(m.username === username){
+                div.classList.add('backgroundcolor');
+                div.style.opacity = '1';
+                userId.innerText = `You are in ${originalRank} place`;
+            }
+    
+            if(index === 0){
+                reward.innerText = 'WINNER 🎉🎉🎉';
+                rewardTimeOut();
+            }
+    
             box.appendChild(div);
-            reward.innerText = `your number ${index}`
         });
     })
     .catch(err => console.error(err));
 }
-
-
 
 
 const username = localStorage.getItem("username");
@@ -291,3 +319,11 @@ if (!username) {
         localStorage.setItem("username", name);
 } 
 
+
+// function checkscren(params) {
+//     if(window.innerWidth < 960){
+//         speedTexting.classList.add('welcomeOpacity')
+//     }
+// }
+// window.addEventListener('load', checkscren)
+// window.addEventListener('resize', checkscren)

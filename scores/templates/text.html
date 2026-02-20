@@ -21,7 +21,9 @@
         <div class="bar" style="--i:2;"></div>
         <div class="bar" style="--i:1;"></div>
     </div>
-
+<div class="hidden absolute flex justify-center items-center text-gray-200 flex-[1] " id="smallScreen">
+    <div class="text-xl">This speed challenge is built for keyboards! <p> grab a labtop or destop to play</p></div>
+</div>
     <!-- main body -->
     <div class="main justify-center items-center flex-[1] h-screen w-full flex-col flex">
 
@@ -58,7 +60,10 @@
                 <!-- displayed text -->
                 <div class="flex-[0.2] flex-col flex justify-center pl-8" id="displayedText">
                     <div class="flex-[0.8] h-44 text-lg" id="wordsdisplayed"></div>
-                    <div id="reward" class="flex justify-end pr-8"></div>
+                    <div class="flex items-end justify-end  flex-col pr-8">
+                        <div id="reward" ></div>
+                        <div id="userId"></div>
+                    </div>
                 </div>
 
                 <!-- input -->
@@ -94,7 +99,7 @@
 <div class="flex flex-[1] h-full absolute hidden" id="modal">
  <div class="flex flex-col flex-[1] flex-col">
     <div class="flex text-white justify-center items-center flex-[0.15]">
-        <h2 class="text-2xl ">People</h2>
+        <h2 class="text-2xl ">Score Board</h2>
     </div>
     <div class="pl-8 overflow-y-auto flex flex-[0.7]"  id="boxcontainer">
         <div class="flex-1 overflow-y-auto " id="box"></div>
