@@ -103,7 +103,7 @@ z-index: 1;
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
     
 } */
-#speedTexting > div, #modal, #smallScreen {
+#speedTexting > div, #modal{
     background: linear-gradient(45deg,#0c1022,#3c3d37, #000000c5);
     height: 85%;
     border-radius: 20px;
@@ -251,20 +251,7 @@ button{
     #WelcomeMessage{
         display: none;
     }
-    #smallScreen> div{
-        animation: smallscreen 1.5s ease forwards infinite;
-    }
-    @keyframes smallscreen {
-        0%{
-            transform: scale(0.8);
-        }
-        80%{
-            transform: scale(1);
-        }
-        100%{
-            transform: scale(0.8);
-        }
-    }
+
 }
 @media screen and (max-width:400px) {
     #WelcomeMessage> h1{
@@ -278,7 +265,7 @@ button{
     #countDown>h1 , #counting{
         font-size: 40px;
     }
-    #speedTexting > div, #modal, #smallScreen{
+    #speedTexting > div, #modal{
         width: 100%;
         height: 100%;
     }

@@ -226,7 +226,7 @@ openModals.addEventListener('click', function (params) {
     getMessages()
     // Beginnering()
     // HighestScore.innerText = 0
-    localStorage.removeItem('highestScore');
+    // localStorage.removeItem('highestScore');
     speedTexting.classList.add('welcomeOpacity')
 })
 
@@ -278,7 +278,7 @@ function getMessages() {
             // Remove the current user from original position
             const [currentUser] = displayData.splice(currentIndex, 1);
     
-            // Insert them at index 10 (11th position)
+            
             displayData.splice(10, 0, currentUser);
         }
     
@@ -294,12 +294,13 @@ function getMessages() {
                 div.classList.add('backgroundcolor');
                 div.style.opacity = '1';
                 userId.innerText = `You are in ${originalRank} place`;
+                if(index === 0){
+                    reward.innerText = 'WINNER 🎉🎉🎉';
+                    rewardTimeOut();
+                }
             }
     
-            if(index === 0){
-                reward.innerText = 'WINNER 🎉🎉🎉';
-                rewardTimeOut();
-            }
+          
     
             box.appendChild(div);
         });
