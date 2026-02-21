@@ -18,28 +18,32 @@ rest = document.getElementById("rest"),
 wordsdisplayed = document.getElementById("wordsdisplayed"),
 modal = document.getElementById("modal"),
 close = document.getElementById("close"),
-openModals = document.getElementById("openModal"),
+openModals = document.querySelectorAll(".openModal"),
 maindashbox = document.getElementById("maindashbox"),
 box = document.getElementById("box")
 
 
-if(WelcomeMessage){
-    // setting timeout for opacity
-    WelcomeMessage.classList.add("welcomeOpacity")
-    setTimeout(() => {
-        WelcomeMessage.classList.remove("welcomeOpacity")
-    }, 1000);
 
+
+window.addEventListener('load', function () {
+    if(WelcomeMessage){
+        // setting timeout for opacity
+        WelcomeMessage.classList.add("welcomeOpacity")
+        setTimeout(() => {
+            WelcomeMessage.classList.remove("welcomeOpacity")
+        }, 1000);
     
-/* setting time out for both
-countDown and WelcomeMessage */
-
-setTimeout(() => {
-    WelcomeMessage.style.display = "none"
-    countDown.style.display = "flex"
-    StartAfterWelcome()
-}, 6000);
-}
+        
+    /* setting time out for both
+    countDown and WelcomeMessage */
+    
+    setTimeout(() => {
+        WelcomeMessage.style.display = "none"
+        countDown.style.display = "flex"
+        StartAfterWelcome()
+    }, 6000);
+    }  
+})
 
 
 // stting time out for my countDown numbers 3,2,1
@@ -221,16 +225,29 @@ if(savemode !== null){
 }
 
 
-openModals.addEventListener('click', function (params) {
-    modal.style.display= "flex"
+// openModals.addEventListener('click', function (params) {
+//     modal.style.display= "flex"
+//     getMessages()
+
+
+//     // Beginnering()
+//     // HighestScore.innerText = 0
+//     // localStorage.clear();
+//     speedTexting.classList.add('welcomeOpacity')
+// })
+
+openModals.forEach(open => {
+    open.addEventListener('click', function () {
+     modal.style.display= "flex"
     getMessages()
+
+
     // Beginnering()
     // HighestScore.innerText = 0
-    // localStorage.removeItem('highestScore');
-    speedTexting.classList.add('welcomeOpacity')
+    // localStorage.removeItem('username');
+    speedTexting.classList.add('welcomeOpacity')  
+    })
 })
-
-
 
 close.addEventListener('click', function (params) {
     modal.style.display= "none"
@@ -299,6 +316,17 @@ function getMessages() {
                     rewardTimeOut();
                 }
             }
+
+            if(index === 0){
+                div.classList.add('gold');
+                div.classList.remove('backgroundcolor');
+            }else if(index === 1){
+                div.classList.add('sliver');
+                div.classList.remove('backgroundcolor');
+            }else if (index === 2) {
+                div.classList.add('bronze');
+                div.classList.remove('backgroundcolor');
+            }
     
           
     
@@ -309,16 +337,6 @@ function getMessages() {
 }
 
 
-const username = localStorage.getItem("username");
-
-if (!username) {
-
-        let name = prompt("Enter your username");
-        while (name.trim() === "") {
-         name =  prompt("username cannot be empty")
-        }
-        localStorage.setItem("username", name);
-} 
 
 
 // function checkscren(params) {
@@ -328,3 +346,14 @@ if (!username) {
 // }
 // window.addEventListener('load', checkscren)
 // window.addEventListener('resize', checkscren)
+
+    const username = localStorage.getItem("username");
+
+if (!username) {
+
+        let name = prompt("Enter your username");
+        while (name.trim() === "") {
+         name =  prompt("username cannot be empty")
+        }
+        localStorage.setItem("username", name);
+} 
