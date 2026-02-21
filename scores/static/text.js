@@ -115,12 +115,16 @@ let phrases = [
     'perform in coding game',
     'improve in skill play',
 ];
-  userTyped.addEventListener("input", function (params) {
+  userTyped.addEventListener("input", function () {
+
+
     CountDown();
+
     if (!startTime) {
         startTime = Date.now();
     }
     // calculateWPM();
+
     
     let typed = userTyped.value.toLowerCase();
          if (phrases.some(p => typed.includes(p))) {
@@ -128,6 +132,9 @@ let phrases = [
           }
 
 });
+userTyped.addEventListener('paste', function (e) {
+    e.preventDefault()
+})
 
 
 // word per minutes
@@ -225,16 +232,6 @@ if(savemode !== null){
 }
 
 
-// openModals.addEventListener('click', function (params) {
-//     modal.style.display= "flex"
-//     getMessages()
-
-
-//     // Beginnering()
-//     // HighestScore.innerText = 0
-//     // localStorage.clear();
-//     speedTexting.classList.add('welcomeOpacity')
-// })
 
 openModals.forEach(open => {
     open.addEventListener('click', function () {
